@@ -13,18 +13,19 @@ try {
     $di = new FactoryDefault();
 
     // Read services
-    include APP_PATH . "/config/services.php";
+    require dirname(__DIR__) . '/boot/services.php';
 
     // Get config service for use in inline setup below
-    $config = $di->getConfig();
+    $config = $di['config'];
 
     // Include Autoloader
-    include APP_PATH . '/config/loader.php';
+    include dirname(__DIR__) . '/boot/loader.php';
 
     // Handle the request
     $app = new Application($di);
 
-    echo $app->handle()->getContent();
+    $response = $app->handle();
+    $response->send();
 } catch (Exception $e) {
     echo $e->getMessage(), '<br>', nl2br(htmlentities($e->getTraceAsString()));
 }
