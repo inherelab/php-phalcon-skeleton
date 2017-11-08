@@ -1,0 +1,167 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "275aa07345a329050925c0df4cb37f6e",
+    "packages": [
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/fzaninotto/Faker/d3ed4cc37051c1ca52d22d76b437d14809fc7e0d.zip",
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "^4.0 || ^5.0",
+                "squizlabs/php_codesniffer": "^1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2017-08-15T16:48:10+00:00"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "inhere/simple-print-tool",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/inhere/simple-print-tool.git",
+                "reference": "e150b99e88e93efe034f4031a5dbfa2f434cf704"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/inhere/simple-print-tool/e150b99e88e93efe034f4031a5dbfa2f434cf704.zip",
+                "reference": "e150b99e88e93efe034f4031a5dbfa2f434cf704",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "functions.php",
+                    "simplePrinter.php"
+                ],
+                "classmap": [
+                    "Spt.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "inhere",
+                    "email": "in.798@qq.com"
+                }
+            ],
+            "description": "a simple php code format print tool",
+            "homepage": "http://www.yzone.net",
+            "keywords": [
+                "format",
+                "print",
+                "tool"
+            ],
+            "time": "2017-10-23 06:38:31"
+        },
+        {
+            "name": "phalcon/ide-stubs",
+            "version": "v3.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phalcon/ide-stubs.git",
+                "reference": "8eb957462816d0479cd9399c4719f473cc0c2be0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/phalcon/ide-stubs/8eb957462816d0479cd9399c4719f473cc0c2be0.zip",
+                "reference": "8eb957462816d0479cd9399c4719f473cc0c2be0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Phalcon Team",
+                    "email": "team@phalconphp.com",
+                    "homepage": "https://phalconphp.com/en/team"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/phalcon/ide-stubs/graphs/contributors"
+                }
+            ],
+            "description": "The most complete Phalcon Framework IDE stubs library which enables autocompletion in modern IDEs.",
+            "homepage": "https://phalconphp.com",
+            "keywords": [
+                "Devtools",
+                "Eclipse",
+                "autocomplete",
+                "ide",
+                "netbeans",
+                "phalcon",
+                "phpstorm",
+                "stub",
+                "stubs"
+            ],
+            "time": "2017-10-12T20:09:57+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "inhere/simple-print-tool": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.6"
+    },
+    "platform-dev": []
+}

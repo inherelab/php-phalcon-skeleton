@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "start dev server on 127.0.0.1:8055"
+php -S 127.0.0.1:8055 -t swagger-ui/

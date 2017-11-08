@@ -1,0 +1,10 @@
+.idea/
+.phpintel/
+.vscode/
+vendor/
+tmp/*
+.env
+.git/
+*.log
+*.pid
+*.tar
