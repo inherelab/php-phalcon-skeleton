@@ -1,29 +1,39 @@
 #!/usr/bin/env php
 <?php
+/**
+ * entry file for CLI
+ */
 
-use Phalcon\CLI\Console as ConsoleApp;
+use Phalcon\CLI\Console;
 
-$config = include("app/config/config.php");
+$arguments = [];
 
-include("app/config/loader.php");
-include("app/config/services.php");
-
-$arguments = array();
-
-foreach($argv as $k => $arg) {
-  if($k == 1) {
-    $arguments['task'] = $arg;
-  } elseif($k == 2) {
-    $arguments['action'] = $arg;
-  } elseif($k >= 3) {
-    $arguments[] = $arg;
-  }
+foreach ($argv as $k => $arg) {
+    if ($k === 1) {
+        $arguments['task'] = $arg;
+    } elseif ($k === 2) {
+        $arguments['action'] = $arg;
+    } elseif ($k >= 3) {
+        $arguments[] = $arg;
+    }
 }
 
 try {
-  $app = new ConsoleApp();
-  $app->setDI($di);
-  $app->handle($arguments);
-} catch(Exception $e) {
-  echo $e->getMessage();
+    $di = new \Phalcon\Di\FactoryDefault\Cli();
+
+    // boot
+    require dirname(__DIR__) . '/boot/cli.php';
+
+    $app = new Console($di);
+    $app->handle($arguments);
+} catch (Exception $e) {
+    fwrite(STDERR, sprintf(
+        "Message: %s\nAt File: %s Line %d\nCode Trace:\n%s\n",
+        $e->getMessage(),
+        $e->getFile(),
+        $e->getCode(),
+        $e->getTraceAsString()
+    ));
+
+    exit(1);
 }

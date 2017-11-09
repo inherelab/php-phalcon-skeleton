@@ -9,7 +9,10 @@
 use Phalcon\Logger;
 
 return [
-    'cryptSalt'      => 'eEAfR|_&G&f,+vU]:jFr!!A&+71w1Ms9~8_4L!<@[N@DyaIP_2My|:+.u>/6m,$D',
+    'baseUri' => '/',
+    'publicUrl' => 'vokuro.phalconphp.com',
+    'cryptSalt' => 'eEAfR|_&G&f,+vU]:jFr!!A&+71w1Ms9~8_4L!<@[N@DyaIP_2My|:+.u>/6m,$D',
+
     'database' => [
         'adapter' => 'Mysql',
         'host' => '127.0.0.1',
@@ -17,16 +20,17 @@ return [
         'password' => '',
         'dbname' => 'vokuro'
     ],
-    'application' => [
-        'controllersDir' => APP_PATH . '/controllers/',
-        'modelsDir'      => APP_PATH . '/models/',
-        'formsDir'       => APP_PATH . '/forms/',
-        'viewsDir'       => APP_PATH . '/views/',
-        'libraryDir'     => APP_PATH . '/library/',
-        'pluginsDir'     => APP_PATH . '/plugins/',
-        'cacheDir'       => BASE_PATH . '/cache/',
-        'baseUri'        => '/',
-        'publicUrl'      => 'vokuro.phalconphp.com',
+    'paths' => [
+        'app' => APP_PATH . '/',
+        'bin' => BASE_PATH . '/bin/',
+        'boot' => BASE_PATH . '/boot/',
+        'res' => BASE_PATH . '/resources/',
+        'config' => BASE_PATH . '/resources/config/',
+        'tmp' => BASE_PATH . '/tmp/',
+        'web' => BASE_PATH . '/web/',
+        'vendor' => BASE_PATH . '/vendor/',
+        'log' => BASE_PATH . '/tmp/log/',
+        'cache' => BASE_PATH . '/tmp/caches/',
     ],
     'mail' => [
         'fromName' => 'Vokuro',
@@ -44,9 +48,9 @@ return [
         'AWSSecretKey' => ''
     ],
     'logger' => [
-        'path'     => BASE_PATH . '/logs/',
-        'format'   => '%date% [%type%] %message%',
-        'date'     => 'D j H:i:s',
+        'path' => BASE_PATH . '/tmp/logs/',
+        'format' => '%date% [%type%] %message%',
+        'date' => 'D j H:i:s',
         'logLevel' => Logger::DEBUG,
         'filename' => 'application.log',
     ],
