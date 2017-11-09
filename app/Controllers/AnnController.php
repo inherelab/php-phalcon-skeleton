@@ -8,7 +8,6 @@
 
 namespace App\Controllers;
 
-
 use App\Components\BaseController;
 
 /**
@@ -20,6 +19,7 @@ use App\Components\BaseController;
 class AnnController extends BaseController
 {
     /**
+     * @Route('/')
      */
     public function indexAction()
     {

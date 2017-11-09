@@ -24,10 +24,13 @@ class WebApplication extends Application
     {
         // get request route path
         if (isset($_GET['_url'])) {
-            $uri = trim($_GET['_url']);
+            $uri = $_GET['_url'];
         } else {
             $uri = $_SERVER['REQUEST_URI'] ? parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) : '/';
         }
+
+        // clear last '/'
+        $uri = '/' . trim($uri, '/');
 
         return parent::handle($uri);
     }

@@ -10,7 +10,12 @@
 
 use Phalcon\Mvc\Router;
 
-$router->addResource('Ann', '/ann');
+$router->addResource('App\\Controllers\\Ann', '/ann');
+
+$router->addGet('/', [
+    'controller' => 'test',
+    'action' => 'index'
+]);
 
 $router->addGet('/test', [
 //    'namespace'  => 'Backend\Controllers',
@@ -41,9 +46,5 @@ $router->notFound([
 ]);
 
 //
-//$router->addGet('/', [
-//    'controller' => 'test',
-//    'action' => 'index'
-//]);
 
 //var_dump($router);die;
