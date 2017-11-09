@@ -4,19 +4,24 @@
  * User: inhere
  * Date: 2017-11-08
  * Time: 17:47
+ *
+ * @var Phalcon\Mvc\Router\Annotations $router
  */
 
-// Define custom routes. File gets included in the router service definition.
-$router = new Phalcon\Mvc\Router();
+use Phalcon\Mvc\Router;
 
-$router->add('/', [
+$router->addResource('Ann', '/ann');
+
+$router->addGet('/test', [
+//    'namespace'  => 'Backend\Controllers',
     'controller' => 'test',
     'action' => 'index'
 ]);
 
-$router->add('/test/two', [
+$router->addGet('/test/two', [
+//    'namespace'  => 'Backend\Controllers',
     'controller' => 'test',
-    'action' => 'index'
+    'action' => 'two'
 ]);
 
 $router->add('/confirm/{code}/{email}', [
@@ -29,4 +34,16 @@ $router->add('/reset-password/{code}/{email}', [
     'action' => 'resetPassword'
 ]);
 
-return $router;
+// Set 404 paths
+$router->notFound([
+    'controller' => 'site',
+    'action'     => 'notFound',
+]);
+
+//
+//$router->addGet('/', [
+//    'controller' => 'test',
+//    'action' => 'index'
+//]);
+
+//var_dump($router);die;

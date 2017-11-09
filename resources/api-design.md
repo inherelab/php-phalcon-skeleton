@@ -175,6 +175,17 @@ iHandleTime | int(10) | 处理时间 | -
 - 我关注的用户列表
 - 我的粉丝列表
 
+### DB table 
+
+- 用户的关注 `UserFollow`
+
+列名 | 类型 | 含义 | 其他
+-----|-----|-----|------
+iId | int(11) |  主键 | -
+iUserId | int(11) | 用户ID | -
+iTargetId | int(11) | (被关注的)用户ID | -
+iCreateTime | int(10) | 创建时间 | -
+
 ## 模特
 
 ### 模特相册
@@ -187,10 +198,51 @@ iHandleTime | int(10) | 处理时间 | -
 - 删除图片
 - 添加视频
 - 删除视频
+- 模特相册数据列表
+- 模特视频列表
+- 模特图片列表
+
+#### DB table 
+
+- 模特扩展数据 `ModelExtraData`
+
+列名 | 类型 | 含义 | 其他
+-----|-----|-----|------
+iId | int(11) |  主键 | -
+iModelId | int(11) | 模特用户ID | -
+iCreateTime | int(10) | 创建时间 | -
+
+- 模特相册 `ModelAlbum`
+
+列名 | 类型 | 含义 | 其他
+-----|-----|-----|------
+iId | int(11) |  主键 | -
+iModelId | int(11) | 模特用户ID | -
+iType | int(2) | 视频、图片 | -
+iStatus | int(2) | 是否启用 | -
+sUrl | varchar(255) | 视频、图片地址 | -
+iCreateTime | int(10) | 创建时间 | -
 
 ### 模特认证信息
 
 #### 接口API列表
+
+- 提交认证数据
+- 获取认证状态
+
+#### DB table `ModelCertificationData`
+
+列名 | 类型 | 含义 | 其他
+-----|-----|-----|------
+iId | int(11) |  主键 | -
+iModelId | int(11) | 模特用户ID | -
+iStatus | int(2) | 认证状态 | 1 认证中 2 认证通过 3 认证失败
+sAvatar | varchar(255) | 模特头像 | -
+sSignature | varchar(255) | 个性签名 | -
+sPersonalHonor | varchar(255) | 个人荣誉 | JSON string
+iCreateTime | int(10) | 创建时间 | -
+iUpdateTime | int(10) | 更新时间 | -
+iPassedTime | int(10) | 认证通过时间 | -
 
 ## 动态
 

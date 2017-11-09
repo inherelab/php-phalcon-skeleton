@@ -13,6 +13,8 @@ use Phalcon\Di\ServiceProviderInterface;
 use Phalcon\DiInterface;
 use Phalcon\Flash\Direct as Flash;
 use Phalcon\Mvc\Dispatcher;
+use Phalcon\Mvc\Router;
+use Phalcon\Mvc\Router\Annotations as AnnotationsRouter;
 use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
@@ -50,7 +52,13 @@ class WebServiceProvider implements ServiceProviderInterface
          * Loading routes from the routes.php file
          */
         $di->set('router', function () {
-            return require BASE_PATH . '/boot/web-routes.php';
+//            $router = new Router();
+            $router = new AnnotationsRouter(false);
+
+            // load routes
+            require BASE_PATH . '/boot/web-routes.php';
+
+            return $router;
         });
 
         /**

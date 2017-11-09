@@ -18,6 +18,7 @@ $di = new \Phalcon\Di\FactoryDefault\Cli();
 // Read common services
 require dirname(__DIR__) . '/boot/services.php';
 
-
 // some services for CLI
 $di->register(new CliServiceProvider());
+
+error_reporting(E_ALL);

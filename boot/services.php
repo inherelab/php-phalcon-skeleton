@@ -1,5 +1,6 @@
 <?php
 /**
+ * There are common services
  * @var \Phalcon\Di $di
  */
 
@@ -14,9 +15,7 @@ use Phalcon\Mvc\Model\Metadata\Files as MetaDataAdapter;
  * Register the global configuration as config
  */
 $di->setShared('config', function () {
-    $config = new Config(include BASE_PATH . '/config/_base.php');
-
-    return $config;
+    return new Config(include BASE_PATH . '/config/_base.php');
 });
 
 /**

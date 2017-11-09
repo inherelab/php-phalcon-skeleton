@@ -19,3 +19,5 @@ require dirname(__DIR__) . '/boot/services.php';
 // Some services for WEB
 $di->register(new WebServiceProvider());
 
+//
+error_reporting(E_ALL);

@@ -1,8 +1,7 @@
 <?php
-use Phalcon\DI\FactoryDefault;
-use Phalcon\Mvc\Application;
 
-error_reporting(E_ALL);
+use App\Components\WebApplication;
+use Phalcon\DI\FactoryDefault;
 
 try {
     // The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
@@ -12,7 +11,7 @@ try {
     require dirname(__DIR__) . '/boot/web.php';
 
     // Handle the request
-    $app = new Application($di);
+    $app = new WebApplication($di);
 
     $response = $app->handle();
     $response->send();
