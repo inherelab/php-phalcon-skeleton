@@ -9,7 +9,12 @@
 // Define custom routes. File gets included in the router service definition.
 $router = new Phalcon\Mvc\Router();
 
-$router->add('/test', [
+$router->add('/', [
+    'controller' => 'test',
+    'action' => 'index'
+]);
+
+$router->add('/test/two', [
     'controller' => 'test',
     'action' => 'index'
 ]);

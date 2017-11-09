@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Start dev server on 127.0.0.1:8066"
+php -S 127.0.0.1:8066 -t web

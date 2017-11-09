@@ -19,6 +19,24 @@
 
 - IDEA 提示支持 `composer require --dev phalcon/ide-stubs:3.2.4`
 
+### CLI 应用
+
+命令行控制器放在 `app/Console` 目录
+
+执行：
+
+命令结构 `php5 bin/cli {command} [arguments ...] [--options ...]`
+
+- 示例
+
+```bash
+php bin/cli main:main name=dfd --hd=dfdf -d -l=45 val
+```
+
+### WEB 应用
+
+web控制器默认放在 `app/Controllers` 目录
+
 ## swagger 文档
 
 - `swagger.json` gen by `"zircote/swagger-php": "^2.0"`

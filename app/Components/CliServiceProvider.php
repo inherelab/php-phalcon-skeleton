@@ -8,6 +8,7 @@
 
 namespace App\Components;
 
+use Phalcon\Cli\Dispatcher;
 use Phalcon\Config;
 use Phalcon\Di\ServiceProviderInterface;
 use Phalcon\DiInterface;
@@ -23,10 +24,10 @@ class CliServiceProvider implements ServiceProviderInterface
      */
     protected function initWebConfig(Config $config)
     {
-        $config->merge(include BASE_PATH . '/config/cli.php');
+        $config->merge(new Config(include BASE_PATH . '/config/cli.php'));
 
         if (is_readable(BASE_PATH . '/config/cli.dev.php')) {
-            $config->merge(include BASE_PATH . '/config/cli.dev.php');
+            $config->merge(new Config(include BASE_PATH . '/config/cli.dev.php'));
         }
     }
 
@@ -40,6 +41,25 @@ class CliServiceProvider implements ServiceProviderInterface
         $config = $di->get('config');
         $this->initWebConfig($config);
 
+        /**
+         * create app instance
+         */
+        $di->setShared('app', function () {
+            $app = new CliApplication($this);
+            $app->parseCliArgv();
 
+            return $app;
+        });
+
+        /**
+         * Dispatcher use a default namespace
+         */
+        $di->setShared('dispatcher', function () {
+            $dispatcher = new Dispatcher();
+            $dispatcher->setDefaultNamespace('App\Console');
+            $dispatcher->setActionSuffix('Command');
+
+            return $dispatcher;
+        });
     }
 }

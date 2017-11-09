@@ -12,8 +12,12 @@ use App\Components\CliServiceProvider;
 // Include Autoloader
 include dirname(__DIR__) . '/boot/loader.php';
 
+// create DI container
+$di = new \Phalcon\Di\FactoryDefault\Cli();
+
 // Read common services
 require dirname(__DIR__) . '/boot/services.php';
+
 
 // some services for CLI
 $di->register(new CliServiceProvider());

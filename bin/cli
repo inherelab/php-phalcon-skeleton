@@ -2,30 +2,15 @@
 <?php
 /**
  * entry file for CLI
+ * @var App\Components\CliApplication $app
  */
 
-use Phalcon\CLI\Console;
-
-$arguments = [];
-
-foreach ($argv as $k => $arg) {
-    if ($k === 1) {
-        $arguments['task'] = $arg;
-    } elseif ($k === 2) {
-        $arguments['action'] = $arg;
-    } elseif ($k >= 3) {
-        $arguments[] = $arg;
-    }
-}
-
 try {
-    $di = new \Phalcon\Di\FactoryDefault\Cli();
-
     // boot
     require dirname(__DIR__) . '/boot/cli.php';
 
-    $app = new Console($di);
-    $app->handle($arguments);
+    $app = $di->get('app');
+    $app->handle($app->getCommandInfo());
 } catch (Exception $e) {
     fwrite(STDERR, sprintf(
         "Message: %s\nAt File: %s Line %d\nCode Trace:\n%s\n",

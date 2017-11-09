@@ -9,9 +9,12 @@
 use Phalcon\Logger;
 
 return [
-    'baseUri' => '/',
-    'publicUrl' => 'vokuro.phalconphp.com',
-    'cryptSalt' => 'eEAfR|_&G&f,+vU]:jFr!!A&+71w1Ms9~8_4L!<@[N@DyaIP_2My|:+.u>/6m,$D',
+    'application' => [
+        'name' => 'My App',
+        'baseUri' => '/',
+        'publicUrl' => 'vokuro.phalconphp.com',
+        'cryptSalt' => 'eEAfR|_&G&f,+vU]:jFr!!A&+71w1Ms9~8_4L!<@[N@DyaIP_2My|:+.u>/6m,$D',
+    ],
 
     'database' => [
         'adapter' => 'Mysql',
@@ -24,8 +27,8 @@ return [
         'app' => APP_PATH . '/',
         'bin' => BASE_PATH . '/bin/',
         'boot' => BASE_PATH . '/boot/',
+        'config' => BASE_PATH . '/config/',
         'res' => BASE_PATH . '/resources/',
-        'config' => BASE_PATH . '/resources/config/',
         'tmp' => BASE_PATH . '/tmp/',
         'web' => BASE_PATH . '/web/',
         'vendor' => BASE_PATH . '/vendor/',
@@ -50,7 +53,7 @@ return [
     'logger' => [
         'path' => BASE_PATH . '/tmp/logs/',
         'format' => '%date% [%type%] %message%',
-        'date' => 'D j H:i:s',
+        'date' => 'Ymd H:i:s',
         'logLevel' => Logger::DEBUG,
         'filename' => 'application.log',
     ],

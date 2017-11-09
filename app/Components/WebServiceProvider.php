@@ -8,16 +8,11 @@
 
 namespace App\Components;
 
+use Phalcon\Config;
 use Phalcon\Di\ServiceProviderInterface;
 use Phalcon\DiInterface;
-use Phalcon\Config;
-use Phalcon\Crypt;
-use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 use Phalcon\Flash\Direct as Flash;
-use Phalcon\Logger\Adapter\File as FileLogger;
-use Phalcon\Logger\Formatter\Line as FormatterLine;
 use Phalcon\Mvc\Dispatcher;
-use Phalcon\Mvc\Model\Metadata\Files as MetaDataAdapter;
 use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
@@ -34,10 +29,10 @@ class WebServiceProvider implements ServiceProviderInterface
      */
     protected function initWebConfig(Config $config)
     {
-        $config->merge(include BASE_PATH . '/config/web.php');
+        $config->merge(new Config(include BASE_PATH . '/config/web.php'));
 
         if (is_readable(BASE_PATH . '/config/web.dev.php')) {
-            $config->merge(include BASE_PATH . '/config/web.dev.php');
+            $config->merge(new Config(include BASE_PATH . '/config/web.dev.php'));
         }
     }
 
@@ -90,7 +85,7 @@ class WebServiceProvider implements ServiceProviderInterface
                     $config = $this->getConfig();
                     $volt = new VoltEngine($view, $this);
                     $volt->setOptions([
-                        'compiledPath' => $config->application->cacheDir . 'volt/',
+                        'compiledPath' => $config->paths->cache . 'volt/',
                         'compiledSeparator' => '_'
                     ]);
 

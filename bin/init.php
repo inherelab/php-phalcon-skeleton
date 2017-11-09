@@ -20,8 +20,8 @@ use Phalcon\Cli\Task;
  */
 class TestController extends Task
 {
-    public function mainAction(){ echo 'hello'; }
-    public function twoAction(){}
+    public function mainCommand(){ echo 'hello'; }
+    public function twoCommand(){}
 }
 
 EOF;

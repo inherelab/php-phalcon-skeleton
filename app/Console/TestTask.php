@@ -3,24 +3,24 @@
  * Created by Script.
  * User: inhere
  * Date: 2017-11-08
- * Time: 17:36
+ * Time: 17:37
  */
 
-namespace App\Controllers;
+namespace App\Console;
 
-use App\Components\BaseController;
+use App\Components\BaseTask;
 
 /**
  * @package App\Controllers
  */
-class TestController extends BaseController
+class TestTask extends BaseTask
 {
-    public function indexAction()
+    public function mainCommand()
     {
         echo 'hello';
     }
 
-    public function twoAction()
+    public function twoCommand()
     {
         echo __METHOD__;
     }
