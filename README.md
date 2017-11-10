@@ -1,14 +1,6 @@
-# UEM - User extension information module
+# phalcon skeleton
 
-用户扩展信息模块
-
-## 暂定包含板块
-
-- 聊天
-- 动态
-- 评价，反馈
-- 模特扩展信息（相册，认证资料）
-- 关注
+phalcon 应用骨架
 
 ## 使用框架
 
@@ -60,3 +52,7 @@ web控制器默认放在 `app/Controllers` 目录
 ```
 
 - 访问： `127.0.0.1:8055`
+
+## License
+
+MIT
