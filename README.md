@@ -4,8 +4,9 @@ phalcon 应用骨架
 
 ## 使用框架
 
-- php `phalcon`
-- api 文档 `swagger`
+- `phalcon` php 框架
+- `swagger-php` 用于生成 swagger.json 文档。
+- `swagger-ui` api 文档展示
 
 ## phalcon
 
@@ -29,10 +30,22 @@ php bin/cli main:main name=dfd --hd=dfdf -d -l=45 val
 
 web控制器默认放在 `app/Controllers` 目录
 
+## swagger-php 
+
+推荐全局安装：
+
+```sh
+composer require --global zircote/swagger-php
+```
+
 ## swagger 文档
 
-- `swagger.json` gen by `"zircote/swagger-php": "^2.0"`
-- swagger-ui 下载 `npm install swagger-ui-dist`
+swagger-ui 下载
+
+- `npm install swagger-ui-dist`
+- 或者 https://github.com/swagger-api/swagger-ui
+
+拷贝 `dist` 下的所有文件到项目目录下 `swagger-ui` 目录
 
 ### 文档生成
 
