@@ -2,7 +2,7 @@
 
 phalcon 应用骨架
 
-## 使用框架
+## 使用技术
 
 - `phalcon` php 框架
 - `swagger-php` 用于生成 swagger.json 文档。
@@ -58,7 +58,7 @@ swagger-ui 下载
 
 ### 文档查看
 
-- 运行服务器
+- 运行服务器(只能在内网查看)
 
 ```
 ./bin/swagger-ui

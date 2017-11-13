@@ -2,7 +2,7 @@
 .phpintel/
 .vscode/
 vendor/
-tmp/*
+tmp/
 .env
 .git/
 *.log
