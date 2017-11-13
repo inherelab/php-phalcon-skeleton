@@ -12,3 +12,6 @@ $loader
     ->register();
 
 require dirname(__DIR__) . '/vendor/autoload.php';
+
+// init .env
+PhpDotEnv::init(BASE_PATH);
