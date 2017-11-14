@@ -1,4 +1,7 @@
 <?php
+/**
+ * common
+ */
 
 // Define some useful constants
 define('BASE_PATH',  dirname(__DIR__));
@@ -9,9 +12,10 @@ $loader
     ->registerNamespaces([
         'App' => dirname(__DIR__) . '/app/',
     ])
+    ->registerFiles([
+        BASE_PATH . '/app/Helper/functions.php'
+    ])
     ->register();
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-// init .env
-PhpDotEnv::init(BASE_PATH);

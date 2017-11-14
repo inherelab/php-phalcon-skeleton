@@ -1,12 +1,11 @@
 <?php
+/**
+ * @var \Phalcon\DI\FactoryDefault $di
+ */
 
 use App\Components\WebApplication;
-use Phalcon\DI\FactoryDefault;
 
 try {
-    // The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
-    $di = new FactoryDefault();
-
     // boot
     require dirname(__DIR__) . '/boot/web.php';
 

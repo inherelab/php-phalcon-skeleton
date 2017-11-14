@@ -10,6 +10,8 @@ phalcon 应用骨架
 
 ## phalcon
 
+- 官网 https://phalconphp.com
+- github https://github.com/phalcon/cphalcon
 - IDEA 提示支持 `composer require --dev phalcon/ide-stubs:3.2.4`
 
 ### CLI 应用

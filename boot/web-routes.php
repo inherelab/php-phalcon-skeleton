@@ -8,13 +8,23 @@
  * @var Phalcon\Mvc\Router\Annotations $router
  */
 
-use Phalcon\Mvc\Router;
+//use Phalcon\Mvc\Router;
 
 $router->addResource('App\\Controllers\\Ann', '/ann');
 
 $router->addGet('/', [
     'controller' => 'test',
     'action' => 'index'
+]);
+
+$router->addGet('/apidocs', [
+    'controller' => 'ApiDoc',
+    'action' => 'index'
+]);
+
+$router->addGet('/apidocs/gen', [
+    'controller' => 'ApiDoc',
+    'action' => 'gen'
 ]);
 
 $router->addGet('/test', [

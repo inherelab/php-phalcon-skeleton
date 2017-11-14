@@ -8,16 +8,12 @@
  * @var Phalcon\DI\FactoryDefault $di
  */
 
-use App\Components\WebServiceProvider;
+define('RUN_MODE',  'web');
 
 // Include Autoloader
 include dirname(__DIR__) . '/boot/loader.php';
 
-// Read common services
-require dirname(__DIR__) . '/boot/services.php';
+// The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
+$di = new \Phalcon\Di\FactoryDefault();
 
-// Some services for WEB
-$di->register(new WebServiceProvider());
-
-//
-error_reporting(E_ALL);
+App\Bootstrap::boot($di);

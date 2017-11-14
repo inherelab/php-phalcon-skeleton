@@ -6,8 +6,9 @@
  * Time: 9:44
  */
 
-namespace App\Components;
+namespace App\Providers;
 
+use App\Components\CliApplication;
 use Phalcon\Cli\Dispatcher;
 use Phalcon\Config;
 use Phalcon\Di\ServiceProviderInterface;
@@ -15,7 +16,7 @@ use Phalcon\DiInterface;
 
 /**
  * Class CliServiceProvider
- * @package App\Components
+ * @package App\Providers
  */
 class CliServiceProvider implements ServiceProviderInterface
 {

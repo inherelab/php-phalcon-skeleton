@@ -9,6 +9,9 @@
 use Phalcon\Logger;
 
 return [
+    'debug' => false,
+    'php_error_report' => E_ALL,
+    'timeZone' => 'Asia/Shanghai',
     'application' => [
         'name' => 'My App',
         'baseUri' => '/',

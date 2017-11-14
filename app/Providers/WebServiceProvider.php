@@ -6,7 +6,7 @@
  * Time: 9:44
  */
 
-namespace App\Components;
+namespace App\Providers;
 
 use Phalcon\Config;
 use Phalcon\Di\ServiceProviderInterface;
@@ -19,10 +19,12 @@ use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
+use Phalcon\Events\Manager as EventsManager;
+use Phalcon\Mvc\View\Engine\Php;
 
 /**
  * Class WebServiceProvider
- * @package App\Components
+ * @package App\Providers
  */
 class WebServiceProvider implements ServiceProviderInterface
 {
@@ -65,7 +67,25 @@ class WebServiceProvider implements ServiceProviderInterface
          * Dispatcher use a default namespace
          */
         $di->set('dispatcher', function () {
+            // Create an events manager
+            $eventsManager = new EventsManager();
+
+            // Listen for events produced in the dispatcher using the Security plugin
+//            $eventsManager->attach(
+//                'dispatch:beforeExecuteRoute',
+//                new SecurityPlugin()
+//            );
+
+            // Handle exceptions and not-found exceptions using NotFoundPlugin
+//            $eventsManager->attach(
+//                'dispatch:beforeException',
+//                new NotFoundPlugin()
+//            );
+
             $dispatcher = new Dispatcher();
+
+            // Assign the events manager to the dispatcher
+            $dispatcher->setEventsManager($eventsManager);
             $dispatcher->setDefaultNamespace('App\Controllers');
 
             return $dispatcher;
@@ -89,6 +109,9 @@ class WebServiceProvider implements ServiceProviderInterface
             $view = new View();
             $view->setViewsDir($config->paths->views);
             $view->registerEngines([
+                '.html' => Php::class,
+                '.phtml' => Php::class,
+                '.php' => Php::class,
                 '.volt' => function ($view) {
                     $config = $this->getConfig();
                     $volt = new VoltEngine($view, $this);

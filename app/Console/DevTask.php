@@ -20,7 +20,7 @@ class DevTask extends BaseTask
         echo 'hello';
     }
 
-    public function serverCommand()
+    public function serveCommand()
     {
         echo __METHOD__;
     }
