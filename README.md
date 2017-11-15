@@ -54,9 +54,9 @@ swagger-ui 下载
 
 ```sh
 // 扫描当前文件夹下所有目录
-~/AppData/Roaming/Composer/vendor/bin/swagger --output swagger-ui/docs
+~/AppData/Roaming/Composer/vendor/bin/swagger --output web/docs
 // 指定扫描一个或多个目录
- ~/AppData/Roaming/Composer/vendor/bin/swagger --output swagger-ui/docs [dirs ...]
+ ~/AppData/Roaming/Composer/vendor/bin/swagger --output web/docs [dirs ...]
 ```
 
 ### 文档查看
