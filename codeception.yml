@@ -20,12 +20,12 @@ extensions:
         - Codeception\Extension\RunFailed
 error_level: "E_ALL"
 # Global modules configuration.
-modules:
-    config:
-        Db:
-            dsn: 'mysql:host=localhost;dbname=phalcon_demo'
-            user: 'root'
-            password: ''
-            dump: tests/_data/dump.sql
-            populate: true
-            cleanup: true
+#modules:
+#    config:
+#        Db:
+#            dsn: 'mysql:host=127.0.0.1;dbname=social-uem;charset=utf8'
+#            user: 'root'
+#            password: 'root'
+#            dump: tests/_data/dump.sql
+#            populate: true
+#            cleanup: true

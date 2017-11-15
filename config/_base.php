@@ -24,8 +24,8 @@ return [
         'adapter' => 'Mysql',
         'host' => '127.0.0.1',
         'username' => 'root',
-        'password' => '',
-        'dbname' => 'vokuro'
+        'password' => 'root',
+        'dbname' => 'social-uem'
     ],
     'paths' => [
         'app' => APP_PATH . '/',

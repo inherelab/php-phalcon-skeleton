@@ -59,6 +59,9 @@ class WebServiceProvider implements ServiceProviderInterface
 
             // Use $_SERVER['REQUEST_URI']
             $router->setUriSource(Router::URI_SOURCE_SERVER_REQUEST_URI);
+            $router->setDefaultController('index');
+            // Remove trailing slashes automatically
+            $router->removeExtraSlashes(true);
 
             // load routes
             require BASE_PATH . '/boot/web-routes.php';

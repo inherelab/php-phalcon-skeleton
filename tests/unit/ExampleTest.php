@@ -1,6 +1,11 @@
 <?php
 
-
+/**
+ * Class ExampleTest
+ *
+ * @method count()
+ * @method run(PHPUnit_Framework_TestResult $result = null)
+ */
 class ExampleTest extends \Codeception\Test\Unit
 {
     /**
@@ -19,6 +24,7 @@ class ExampleTest extends \Codeception\Test\Unit
     // tests
     public function testSomeFeature()
     {
-
+        $this->assertEquals(1, 1);
     }
+
 }

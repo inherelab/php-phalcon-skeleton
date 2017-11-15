@@ -36,6 +36,11 @@ class Bootstrap
         // init .env
         PhpDotEnv::load(BASE_PATH);
 
+        /**
+         * @const APP_ENV Current application environment
+         */
+        defined('APP_ENV') || define('APP_ENV', env('APP_ENV') ?: APP_PDT);
+
         // Read common services
         require dirname(__DIR__) . '/boot/services.php';
 

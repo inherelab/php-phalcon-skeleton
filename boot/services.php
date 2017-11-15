@@ -21,7 +21,7 @@ $di->setShared('config', function () {
 /**
  * Database connection is created based in the parameters defined in the configuration file
  */
-$di->set('db', function () {
+$di->setShared('db', function () {
     $config = $this->getConfig();
 
     return new DbAdapter([

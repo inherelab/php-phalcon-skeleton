@@ -64,10 +64,10 @@ swagger-ui 下载
 - 运行服务器(只能在内网查看)
 
 ```
-./bin/swagger-ui
+./bin/dev-server
 ```
 
-- 访问： `127.0.0.1:8055`
+- 访问： `127.0.0.1:8066`
 
 ## codeception 测试
 
@@ -93,6 +93,12 @@ codecept bootstrap
 
 ### 运行测试
 
+运行流程：
+
+```text
+tests/_boot.php -> {suite}/_boot.php -> boot/web.php
+```
+
 ```bash
 codecept run --steps [--no-ansi]
 ```
@@ -100,9 +106,10 @@ codecept run --steps [--no-ansi]
 php5 
 
 ```bash
-php5 $(which codecept5.phar) run --steps --no-ansi
+php5 $(which codecept5.phar) run --steps [--no-ansi -vvv]
+// 只运行单元测试
+php5 $(which codecept5.phar) run unit
 ```
-
 
 ## License
 
