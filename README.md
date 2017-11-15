@@ -9,7 +9,7 @@ phalcon 应用骨架
 - `swagger-ui` api 文档展示
 - `codeception` 测试框架
 
-## phalcon
+## 一、phalcon
 
 - 官网 https://phalconphp.com
 - github https://github.com/phalcon/cphalcon
@@ -33,7 +33,7 @@ php bin/cli main:main name=dfd --hd=dfdf -d -l=45 val
 
 web控制器默认放在 `app/Controllers` 目录
 
-## swagger-php 
+## 二、 swagger-php 
 
 推荐全局安装：
 
@@ -41,7 +41,13 @@ web控制器默认放在 `app/Controllers` 目录
 composer require --global zircote/swagger-php
 ```
 
-## swagger 文档
+使用
+
+```bash
+vendor/bin/swagger --output web/docs
+```
+
+## 三、 swagger 文档
 
 swagger-ui 下载
 
@@ -69,7 +75,7 @@ swagger-ui 下载
 
 - 访问： `127.0.0.1:8066`
 
-## codeception 测试
+## 四、 codeception 测试
 
 codeception:
 
