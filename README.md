@@ -7,6 +7,7 @@ phalcon 应用骨架
 - `phalcon` php 框架
 - `swagger-php` 用于生成 swagger.json 文档。
 - `swagger-ui` api 文档展示
+- `codeception` 测试框架
 
 ## phalcon
 
@@ -67,6 +68,41 @@ swagger-ui 下载
 ```
 
 - 访问： `127.0.0.1:8055`
+
+## codeception 测试
+
+codeception:
+
+- 官网 http://codeception.com
+- github https://github.com/codeception/codeception
+- phalcon 配置demo https://github.com/Codeception/phalcon-demo
+
+分为三类：
+
+- acceptance 验收测试
+- functional 功能测试
+- unit 单元测试
+
+### 初始化
+
+将会创建基本的目录和配置文件
+
+```bash
+codecept bootstrap
+```
+
+### 运行测试
+
+```bash
+codecept run --steps [--no-ansi]
+```
+
+php5 
+
+```bash
+php5 $(which codecept5.phar) run --steps --no-ansi
+```
+
 
 ## License
 

@@ -1,17 +1,14 @@
 <?php
 /**
  * @var \Phalcon\DI\FactoryDefault $di
+ * @var \App\Components\WebApplication $app
  */
-
-use App\Components\WebApplication;
 
 try {
     // boot
     require dirname(__DIR__) . '/boot/web.php';
 
     // Handle the request
-    $app = new WebApplication($di);
-
     $response = $app->handle();
     $response->send();
 } catch (Exception $e) {

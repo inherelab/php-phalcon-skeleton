@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Swagger Petstore",
+        "title": "User extension information module",
         "license": {
             "name": "MIT"
         },
@@ -10,7 +10,8 @@
     "host": "petstore.swagger.io",
     "basePath": "/v1",
     "schemes": [
-        "http"
+        "http",
+        "https"
     ],
     "consumes": [
         "application/json"
@@ -131,6 +132,22 @@
                 "$ref": "#/definitions/Pet"
             }
         },
+        "ErrorModel": {
+            "required": [
+                "code",
+                "message"
+            ],
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "Pet": {
             "required": [
                 "id",
@@ -149,5 +166,35 @@
                 }
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "pet",
+            "description": "Everything about your Pets",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://swagger.io"
+            }
+        },
+        {
+            "name": "pets",
+            "description": "Everything about your Pets",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://swagger.io"
+            }
+        },
+        {
+            "name": "store",
+            "description": "Access to Petstore orders"
+        },
+        {
+            "name": "user",
+            "description": "Operations about user",
+            "externalDocs": {
+                "description": "Find out more about our store",
+                "url": "http://swagger.io"
+            }
+        }
+    ]
 }

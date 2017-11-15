@@ -10,6 +10,9 @@
 
 //use Phalcon\Mvc\Router;
 
+// Remove trailing slashes automatically
+$router->removeExtraSlashes(true);
+
 $router->addResource('App\\Controllers\\Ann', '/ann');
 
 $router->addGet('/', [
@@ -17,10 +20,12 @@ $router->addGet('/', [
     'action' => 'index'
 ]);
 
-$router->addGet('/apidocs', [
+$route = $router->addGet('/apidocs', [
     'controller' => 'ApiDoc',
     'action' => 'index'
 ]);
+$route->setName('domain.route');
+$route->setHostname('join.phalcon.demo');
 
 $router->addGet('/apidocs/gen', [
     'controller' => 'ApiDoc',
@@ -48,6 +53,19 @@ $router->add('/reset-password/{code}/{email}', [
     'controller' => 'user_control',
     'action' => 'resetPassword'
 ]);
+
+
+$router->add('/:controller', [
+    'controller' => 1,
+    'action'     => 'index'
+])->setName('front.controller');
+
+$router->add('/:controller/:action/:params', [
+    'controller' => 1,
+    'action'     => 2,
+    'params'     => 3,
+])->setName('front.full');
+
 
 // Set 404 paths
 $router->notFound([

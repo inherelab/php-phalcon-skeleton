@@ -1,0 +1,31 @@
+# see https://github.com/Codeception/phalcon-demo/blob/master/codeception.yml
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
+actor_suffix: Tester
+settings:
+    # name of bootstrap that will be used
+    # each bootstrap file should be
+    # inside a suite directory.
+    bootstrap: _boot.php
+    colors: true
+    # Tests (especially functional) can take a lot of memory
+    # We set a high limit for them by default.
+    memory_limit: 1024M
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
+error_level: "E_ALL"
+# Global modules configuration.
+modules:
+    config:
+        Db:
+            dsn: 'mysql:host=localhost;dbname=phalcon_demo'
+            user: 'root'
+            password: ''
+            dump: tests/_data/dump.sql
+            populate: true
+            cleanup: true

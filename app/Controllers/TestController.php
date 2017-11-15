@@ -18,7 +18,7 @@ class TestController extends BaseController
     public function indexAction()
     {
         echo 'hello';
-        var_dump($this->router->getRoutes(), $this->router->getMatchedRoute());
+//        var_dump($this->router->getRoutes(), $this->router->getMatchedRoute());
     }
 
     public function twoAction()

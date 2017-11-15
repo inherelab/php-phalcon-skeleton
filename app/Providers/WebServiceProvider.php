@@ -57,6 +57,9 @@ class WebServiceProvider implements ServiceProviderInterface
 //            $router = new Router();
             $router = new AnnotationsRouter(false);
 
+            // Use $_SERVER['REQUEST_URI']
+            $router->setUriSource(Router::URI_SOURCE_SERVER_REQUEST_URI);
+
             // load routes
             require BASE_PATH . '/boot/web-routes.php';
 

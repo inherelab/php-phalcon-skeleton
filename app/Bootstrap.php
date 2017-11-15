@@ -54,6 +54,13 @@ class Bootstrap
 
         // date timezone
         date_default_timezone_set('Asia/Shanghai');
+
+        /**
+         * Set the MB extension encoding to the same character set
+         */
+        if (function_exists('mb_internal_encoding')) {
+            mb_internal_encoding('utf-8');
+        }
     }
 
     /**

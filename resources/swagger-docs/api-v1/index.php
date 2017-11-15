@@ -1,6 +1,6 @@
 <?php
 /**
- * @see App\Http\Controllers\HomeController::indexAction()
+ * @see App\Controllers\HomeController::indexAction()
  * @SWG\Swagger(
  *     @SWG\Info(
  *         version="1.0.0",
@@ -9,7 +9,7 @@
  *     ),
  *     host="petstore.swagger.io",
  *     basePath="/v1",
- *     schemes={"http"},
+ *     schemes={"http", "https"},
  *     consumes={"application/json"},
  *     produces={"application/json"},
  *     @SWG\Definition(

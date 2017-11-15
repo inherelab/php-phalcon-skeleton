@@ -16,3 +16,8 @@ include dirname(__DIR__) . '/boot/loader.php';
 $di = new \Phalcon\Di\FactoryDefault\Cli();
 
 App\Bootstrap::boot($di);
+
+/**
+ * @const APP_ENV Current application environment
+ */
+defined('APP_ENV') || define('APP_ENV', env('APP_ENV') ?: APP_PDT);

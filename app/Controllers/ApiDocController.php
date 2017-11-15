@@ -16,33 +16,44 @@ use App\Components\BaseController;
  */
 class ApiDocController extends BaseController
 {
+    public $docUrl = '/docs/swagger.json';
+    public $docPath = '';
+
+    public function initialize()
+    {
+        parent::initialize();
+
+        $this->docPath = get_path('web' . $this->docUrl);
+    }
+
     /**
      * display api docs by swagger-ui
      */
     public function indexAction()
     {
+        $refresh = (bool)$this->request->getQuery('refresh', 'int', 0);
+
+        if ($refresh) {
+            file_put_contents($this->docPath, $this->scanAndGenerate());
+        }
+
         $this->view->partial('swagger-ui', [
-            'baseUrl' => '/swagger-ui/',
-            'jsonFile' => '/docs/swagger.json',
+            'assetPath' => '/swagger-ui',
+            'jsonFile' => $this->docUrl,
         ]);
     }
 
     /**
      * gen swagger api json
+     * @return \Phalcon\Http\Response|\Phalcon\Http\ResponseInterface
      */
     public function genAction()
     {
         $res = $this->response;
         $echo = (bool)$this->request->getQuery('echo', 0);
-//        $refresh = (bool)$this->request->getQuery('refresh', 0);
 
         $sTime = date('Y-m-d H:i:s');
-        $dirs = [
-//            get_path('app'),
-            get_path('resources/swagger-docs')
-        ];
-//        de($dirs);
-        $swagger = \Swagger\scan($dirs[0]);
+        $swagger = $this->scanAndGenerate();
         $eTime = date('Y-m-d H:i:s');
 
         // Setting a header
@@ -51,7 +62,7 @@ class ApiDocController extends BaseController
         if ($echo) {
             $res->setContent($swagger);
         } else {
-            $writeLen = file_put_contents(get_path('web/swagger-ui/docs/swagger.json'), $swagger);
+            $writeLen = file_put_contents($this->docPath, $swagger);
 
             $res->setJsonContent([
                 'start' => $sTime,
@@ -61,5 +72,15 @@ class ApiDocController extends BaseController
         }
 
         return $res;
+    }
+
+    private function scanAndGenerate()
+    {
+        $dirs = [
+            get_path('app'),
+            get_path('resources/swagger-docs')
+        ];
+
+        return \Swagger\scan($dirs);
     }
 }

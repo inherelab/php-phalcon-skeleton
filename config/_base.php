@@ -9,6 +9,7 @@
 use Phalcon\Logger;
 
 return [
+    'env' => 'pdt', // dev test unit-testing pre pdt
     'debug' => false,
     'php_error_report' => E_ALL,
     'timeZone' => 'Asia/Shanghai',
