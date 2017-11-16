@@ -9,7 +9,6 @@ try {
     // boot
     require dirname(__DIR__) . '/boot/cli.php';
 
-    $app = $di->get('app');
     $app->handle($app->getCommandInfo());
 } catch (Exception $e) {
     fwrite(STDERR, sprintf(

@@ -8,7 +8,6 @@
 
 namespace App\Providers;
 
-use App\Components\CliApplication;
 use Phalcon\Cli\Dispatcher;
 use Phalcon\Config;
 use Phalcon\Di\ServiceProviderInterface;
@@ -41,16 +40,6 @@ class CliServiceProvider implements ServiceProviderInterface
         /** @var Config $config */
         $config = $di->get('config');
         $this->initWebConfig($config);
-
-        /**
-         * create app instance
-         */
-        $di->setShared('app', function () {
-            $app = new CliApplication($this);
-            $app->parseCliArgv();
-
-            return $app;
-        });
 
         /**
          * Dispatcher use a default namespace

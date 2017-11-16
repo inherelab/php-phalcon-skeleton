@@ -22,6 +22,7 @@ App\Bootstrap::boot($di);
 
 $app = new WebApplication($di);
 
+// in the unit testing.
 if (APP_ENV === 'unit-testing') {
     return $app;
 }

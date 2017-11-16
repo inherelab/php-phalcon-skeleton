@@ -7,6 +7,8 @@
  * @var Phalcon\Di\FactoryDefault\Cli $di
  */
 
+use App\Components\CliApplication;
+
 define('RUN_MODE',  'cli');
 
 // Include Autoloader
@@ -17,6 +19,9 @@ $di = new \Phalcon\Di\FactoryDefault\Cli();
 
 App\Bootstrap::boot($di);
 
+$app = new CliApplication($this);
+
+// in the unit testing.
 if (APP_ENV === 'unit-testing') {
-    return $di->get('app');
+    return $app;
 }

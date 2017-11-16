@@ -9,6 +9,7 @@
 namespace App\Components;
 
 use Phalcon\Cli\Console;
+use Phalcon\DiInterface;
 
 /**
  * Class CliApplication
@@ -23,6 +24,18 @@ class CliApplication extends Console
 
 //    private $commands = [];
 //    private $messages = [];
+
+    /**
+     * Phalcon\Application
+     *
+     * @param DiInterface $dependencyInjector
+     */
+    public function __construct(DiInterface $dependencyInjector = null)
+    {
+        parent::__construct($dependencyInjector);
+
+        $this->parseCliArgv();
+    }
 
     /**
      * @param array $argv
