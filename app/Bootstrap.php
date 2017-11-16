@@ -10,6 +10,7 @@ namespace App;
 
 use App\Components\PhpDotEnv;
 use App\Providers\CliServiceProvider;
+use App\Providers\CommonServiceProvider;
 use App\Providers\WebServiceProvider;
 use Phalcon\Di;
 
@@ -42,7 +43,7 @@ class Bootstrap
         defined('APP_ENV') || define('APP_ENV', env('APP_ENV') ?: APP_PDT);
 
         // Read common services
-        require dirname(__DIR__) . '/boot/services.php';
+        $di->register(new CommonServiceProvider());
 
         if (RUN_MODE === 'web') {
             $this->loadWebServices($di);
@@ -73,7 +74,6 @@ class Bootstrap
      */
     private function loadWebServices(Di $di)
     {
-
         // Some services for WEB
         $di->register(new WebServiceProvider());
     }

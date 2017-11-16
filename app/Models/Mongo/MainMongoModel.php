@@ -2,25 +2,20 @@
 /**
  * Created by PhpStorm.
  * User: inhere
- * Date: 2017-11-08
- * Time: 17:48
+ * Date: 2017-11-16
+ * Time: 14:35
  */
 
-namespace App\Models;
+namespace App\Models\Mongo;
 
 use Phalcon\Mvc\Model;
-use Phalcon\Validation;
-use Phalcon\Validation\Validator\Uniqueness;
 
 /**
- * All the users registered in the application
+ * Class MainMysqlModel
+ * @package App\Models\Mongo
  */
-class DemoModel extends Model
+class MainMongoModel extends Model
 {
-    public $prop1;
-
-    public $prop2;
-
     public function onConstruct()
     {
         // ...

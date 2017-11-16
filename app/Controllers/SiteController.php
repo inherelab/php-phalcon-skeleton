@@ -17,7 +17,6 @@ use App\Components\BaseController;
  */
 class SiteController extends BaseController
 {
-
     public function notFoundAction()
     {
         echo 'Page Not Found';

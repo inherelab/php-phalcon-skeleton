@@ -11,6 +11,8 @@ use Phalcon\Logger;
 return [
     'env' => 'pdt', // dev test unit-testing pre pdt
     'debug' => false,
+    // Set to false to disable sending emails (for use in test environment)
+    'useMail' => true,
     'php_error_report' => E_ALL,
     'timeZone' => 'Asia/Shanghai',
     'application' => [
@@ -20,7 +22,7 @@ return [
         'cryptSalt' => 'eEAfR|_&G&f,+vU]:jFr!!A&+71w1Ms9~8_4L!<@[N@DyaIP_2My|:+.u>/6m,$D',
     ],
 
-    'database' => [
+    'mainMysql' => [
         'adapter' => 'Mysql',
         'host' => '127.0.0.1',
         'username' => 'root',
@@ -61,6 +63,4 @@ return [
         'logLevel' => Logger::DEBUG,
         'filename' => 'application.log',
     ],
-    // Set to false to disable sending emails (for use in test environment)
-    'useMail' => true
 ];
