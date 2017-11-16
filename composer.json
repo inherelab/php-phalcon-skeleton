@@ -18,7 +18,8 @@
     },
     "require-dev": {
         "inhere/simple-print-tool": "dev-master",
-        "phalcon/ide-stubs": "3.2.4"
+        "phalcon/ide-stubs": "3.2.4",
+        "phalcon/devtools": "~3.2"
     },
     "autoload": {
     },
