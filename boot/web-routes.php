@@ -59,12 +59,8 @@ $router->add('/reset-password/{code}/{email}', [
 //    'params'     => 3,
 //])->setName('front.full');
 
-
 // Set 404 paths
-$router->notFound([
-    'controller' => 'site',
-    'action'     => 'notFound',
-]);
+$router->notFound('site::say404');
 
 //
 

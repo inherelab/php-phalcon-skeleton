@@ -9,4 +9,8 @@ return [
     'application' => [
         'name' => 'My Console'
     ],
+
+    'logger' => [
+        'filename' => 'console.log',
+    ]
 ];

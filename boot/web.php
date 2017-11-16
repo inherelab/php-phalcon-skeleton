@@ -6,9 +6,8 @@
  * Time: 9:33
  *
  * @var Phalcon\DI\FactoryDefault $di
+ * @var App\Components\WebApplication $app
  */
-
-use App\Components\WebApplication;
 
 define('RUN_MODE',  'web');
 
@@ -18,9 +17,7 @@ include dirname(__DIR__) . '/boot/loader.php';
 // The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
 $di = new \Phalcon\Di\FactoryDefault();
 
-App\Bootstrap::boot($di);
-
-$app = new WebApplication($di);
+$app = App\Bootstrap::boot($di);
 
 // in the unit testing.
 if (APP_ENV === 'unit-testing') {

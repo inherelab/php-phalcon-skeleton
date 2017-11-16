@@ -13,8 +13,8 @@ return [
     'debug' => false,
     // Set to false to disable sending emails (for use in test environment)
     'useMail' => true,
-    'php_error_report' => E_ALL,
-    'timeZone' => 'Asia/Shanghai',
+    'phpErrorReport' => E_ALL,
+    'timezone' => 'Asia/Shanghai',
     'application' => [
         'name' => 'My App',
         'baseUri' => '/',
@@ -56,6 +56,7 @@ return [
         'AWSAccessKeyId' => '',
         'AWSSecretKey' => ''
     ],
+
     'logger' => [
         'path' => BASE_PATH . '/tmp/logs/',
         'format' => '%date% [%type%] %message%',

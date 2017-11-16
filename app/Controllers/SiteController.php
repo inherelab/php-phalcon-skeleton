@@ -17,8 +17,19 @@ use App\Components\BaseController;
  */
 class SiteController extends BaseController
 {
-    public function notFoundAction()
+    public function  say403Action()
+    {
+        echo 'Your No Permission';
+    }
+
+    public function say404Action()
     {
         echo 'Page Not Found';
     }
+
+    public function say503Action()
+    {
+        echo 'Server error';
+    }
+
 }

@@ -23,6 +23,11 @@ class MainTask extends BaseTask
     public function mainCommand($a = null)
     {
         echo 'hello, this is ' . __METHOD__ . PHP_EOL;
-        var_dump($a, $this->app->getArguments(), $this->app->getOptions());
+
+        var_dump(
+            $a,
+            $this->app->getArguments(),
+            $this->app->getOptions()
+        );
     }
 }
