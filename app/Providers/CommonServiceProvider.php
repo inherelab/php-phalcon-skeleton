@@ -18,6 +18,7 @@ use Phalcon\Logger\Adapter\File as FileLogger;
 use Phalcon\Logger\Formatter\Line as FormatterLine;
 use Phalcon\Mvc\Model\Manager as ModelsManager;
 use Phalcon\Mvc\Model\Metadata\Files as MetaDataAdapter;
+use Phalcon\Events\Manager as EventsManager;
 
 /**
  * Class CommonServiceProvider
@@ -35,14 +36,26 @@ class CommonServiceProvider implements ServiceProviderInterface
          * Register the global configuration as config
          */
         $di->setShared('config', function () {
-            return new Config(include BASE_PATH . '/config/_base.php');
+            return new Config(include BASE_PATH . '/config/config.php');
         });
+
+        // eventsManager
+        $di->setShared(
+            'eventsManager',
+            function () {
+                $em = new EventsManager;
+                $em->enablePriorities(true);
+
+                return $em;
+            }
+        );
 
         /**
          * Database connection is created based in the parameters defined in the configuration file
          */
         $di->setShared('mainMysql', function () {
-            $config = $this->getConfig();
+            /** @var DiInterface $this */
+            $config = $this->get('config');
 
             return new MysqlAdapter($config->mainMysql);
         });
@@ -57,7 +70,8 @@ class CommonServiceProvider implements ServiceProviderInterface
          * If the configuration specify the use of metadata adapter use it or use memory otherwise
          */
         $di->set('modelsMetadata', function () {
-            $config = $this->getConfig();
+            /** @var DiInterface $this */
+            $config = $this->get('config');
 
             return new MetaDataAdapter([
                 'metaDataDir' => $config->application->cacheDir . 'metaData/'
@@ -68,7 +82,8 @@ class CommonServiceProvider implements ServiceProviderInterface
          * Crypt service
          */
         $di->set('crypt', function () {
-            $config = $this->getConfig();
+            /** @var DiInterface $this */
+            $config = $this->get('config');
             $crypt = new Crypt();
             $crypt->setKey($config->application->cryptSalt);
 
@@ -77,8 +92,8 @@ class CommonServiceProvider implements ServiceProviderInterface
 
         // Logger service
         $di->set('logger', function () {
-            /** @var Config $config */
-            $config = $this->getConfig();
+            /** @var DiInterface $this */
+            $config = $this->get('config');
 
             $format = $config->get('logger')->format;
             $filename = trim($config->get('logger')->filename, '\\/');

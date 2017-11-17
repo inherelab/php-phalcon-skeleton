@@ -4,6 +4,8 @@
  * User: inhere
  * Date: 2017-11-08
  * Time: 18:02
+ *
+ * Common config for project.
  */
 
 use Phalcon\Logger;

@@ -9,13 +9,13 @@
 namespace App\Listeners;
 
 use Phalcon\Events\Event;
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Mvc\User\Component;
 
 /**
  * Class RuntimeListener
  * @package App\Listeners
  */
-class ApplicationListener extends Plugin
+class ApplicationListener extends Component
 {
     public function boot()
     {

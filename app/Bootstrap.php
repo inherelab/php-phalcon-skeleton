@@ -17,7 +17,6 @@ use App\Providers\CommonServiceProvider;
 use App\Providers\WebServiceProvider;
 use Phalcon\Config;
 use Phalcon\Di;
-use Phalcon\Events\Manager as EventsManager;
 
 /**
  * Class Bootstrap
@@ -90,7 +89,11 @@ class Bootstrap
         $di->register(new WebServiceProvider());
 
         $app = new WebApplication($di);
-        $this->listenApplication($app);
+
+        $em = $di->getShared('eventsManager');
+        $em->attach('application', new ApplicationListener());
+
+        $app->setEventsManager($em);
 
         return $app;
     }
@@ -108,19 +111,12 @@ class Bootstrap
 
         // save to DI
         $di->setShared('app', $app);
-        $this->listenApplication($app);
+
+        $em = $di->getShared('eventsManager');
+        $em->attach('application', new ApplicationListener());
+
+        $app->setEventsManager($em);
 
         return $app;
-    }
-
-    /**
-     * @param \Phalcon\Application $app
-     */
-    protected function listenApplication($app)
-    {
-        $eventsManager = new EventsManager();
-        $eventsManager->attach('application', new ApplicationListener());
-
-        $app->setEventsManager($eventsManager);
     }
 }
