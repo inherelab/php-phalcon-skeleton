@@ -38,7 +38,7 @@ web控制器默认放在 `app/Controllers` 目录
 推荐全局安装：
 
 ```sh
-composer require --global zircote/swagger-php
+composer global require zircote/swagger-php
 ```
 
 使用
